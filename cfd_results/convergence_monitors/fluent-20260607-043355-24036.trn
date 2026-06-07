@@ -1,0 +1,42 @@
+Auto-Transcript Start Time:  04:33:55, 07 Jun 2026 Egypt Daylight Time 
+Current Directory: "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model"
+Information: The server has started and is running.
+
+              Welcome to ANSYS Fluent 2024 R1
+
+              Copyright 1987-2024 ANSYS, Inc. All Rights Reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Nov 22 2023 10:31:01 EST  Build Id: 10184  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "TUFTUF" (win64).
+
+-------------------------------------------------------------------------------
+ID    Hostname  Core  O.S.         PID    Vendor                       
+-------------------------------------------------------------------------------
+n3    TUFTUF    4/12  Windows-x64  16496  Intel(R) Core(TM) 5 210H     
+n2    TUFTUF    3/12  Windows-x64  23708  Intel(R) Core(TM) 5 210H     
+n1    TUFTUF    2/12  Windows-x64  1940   Intel(R) Core(TM) 5 210H     
+n0*   TUFTUF    1/12  Windows-x64  10032  Intel(R) Core(TM) 5 210H     
+host  TUFTUF          Windows-x64  23328  Intel(R) Core(TM) 5 210H     
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+
+Cleanup script file is D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\cleanup-fluent-TUFTUF-23328.bat
+(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)
+
+Meshing> 
+Error: File "D:/MEK/The" not found.
+Error Object: #f
+Shutting down Server...
+Services Shutdown...Done.
+Server Shutdown...Done.
+Queue Cleared...Done.
+Shutdown Complete.
+Auto-Transcript Stop Time:  04:34:08, 07 Jun 2026 Egypt Daylight Time 
+Total Transcript Time: 0 Minute 13 Second.

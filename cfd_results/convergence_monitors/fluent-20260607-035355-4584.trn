@@ -1,0 +1,676 @@
+Auto-Transcript Start Time:  03:53:55, 07 Jun 2026 Egypt Daylight Time 
+Current Directory: "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model"
+Information: The server has started and is running.
+
+              Welcome to ANSYS Fluent 2024 R1
+
+              Copyright 1987-2024 ANSYS, Inc. All Rights Reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Nov 22 2023 10:31:01 EST  Build Id: 10184  
+ 
+Connected License Server List:	1055@localhost
+Host spawning Node 0 on machine "TUFTUF" (win64).
+
+-------------------------------------------------------------------------------
+ID    Hostname  Core  O.S.         PID    Vendor                       
+-------------------------------------------------------------------------------
+n3    TUFTUF    4/12  Windows-x64  23000  Intel(R) Core(TM) 5 210H     
+n2    TUFTUF    3/12  Windows-x64  2456   Intel(R) Core(TM) 5 210H     
+n1    TUFTUF    2/12  Windows-x64  18696  Intel(R) Core(TM) 5 210H     
+n0*   TUFTUF    1/12  Windows-x64  22840  Intel(R) Core(TM) 5 210H     
+host  TUFTUF          Windows-x64  23424  Intel(R) Core(TM) 5 210H     
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+
+Cleanup script file is D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\cleanup-fluent-TUFTUF-23424.bat
+(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)
+
+Meshing> 
+Importing one geom object per program-controlled and one zone per body ...
+    D:\\ANSYS Inc\\v241\\commonfiles\\CPython\\3_10\\winx64\\Release\\python\\..\\Ansys\\TGrid\\CADReaders.py started by omaar on TUFTUF winx64 on Sun Jun  7 03:54:11 2026
+    using Python 3.10.9 (remotes/origin/4e018266dafe29ec2836492d71d245fcfd366d07-dirty:4e018266, Jan  3 2) [MSC v.1920 64 bit (AMD64)]
+    
+    using Ansys.Meshing.FieldMesher build Nov 27 2023 11:54:13
+    
+    running ANSYS TGrid CADToTGridConverter ...
+    setting up parameters ...
+    setting up parameters done.
+    running conversion ...
+    converting 1 file(s) from Workbench to FLTG using output path 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584/out17807936504584.tgf'
+    converting file 'EV_Battery_Module.step' (1 of 1) from Workbench to FLTG using output path 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584'
+    importing data ...
+    importing meshing model from PartMgr from file 'D:\\MEK\\The Digital Twins EV Battery\\phase2_cad_model\\EV_Battery_Module.step' ...
+    setting enclosure and symmetry processing to False
+    setting stitch type to PROGRAMTOLERANCE
+    setting transfer named selections to True
+    setting named selection prefixes to ''
+    setting mixed import resolution type to 'SolidAndSurface'
+    setting target application to 'FluentMeshing'
+    attaching to assembly ...
+    attaching to assembly done in 2.661 [s]
+    processing assembly 'D:\\MEK\\The Digital Twins EV Battery\\phase2_cad_model\\EV_Battery_Module.step' with ID 1
+    length unit = [mm]
+    processing part 'cold_plate|SOLID|SOLID' with ID 3
+    processing part 'fluid|SOLID-0|SOLID' with ID 5
+    processing part 'fluid|SOLID-1|SOLID' with ID 7
+    processing part 'fluid|SOLID-2|SOLID' with ID 9
+    processing part 'fluid|SOLID-3|SOLID' with ID 11
+    processing part 'cells|SOLID-4|SOLID' with ID 13
+    processing part 'cells|SOLID-5|SOLID' with ID 15
+    processing part 'cells|SOLID-6|SOLID' with ID 17
+    processing part 'cells|SOLID-7|SOLID' with ID 19
+    processing part 'cells|SOLID-8|SOLID' with ID 21
+    processing part 'cells|SOLID-9|SOLID' with ID 23
+    processing part 'cells|SOLID-10|SOLID' with ID 25
+    processing part 'cells|SOLID-11|SOLID' with ID 27
+    processing part 'cells|SOLID-12|SOLID' with ID 29
+    processing part 'cells|SOLID-13|SOLID' with ID 31
+    processing part 'cells|SOLID-14|SOLID' with ID 33
+    processing part 'cells|SOLID-15|SOLID' with ID 35
+    processing part 'cells|SOLID-16|SOLID' with ID 37
+    processing part 'cells|SOLID-17|SOLID' with ID 39
+    processing part 'cells|SOLID-18|SOLID' with ID 41
+    processing part 'cells|SOLID-19|SOLID' with ID 43
+    processing part 'inlet|FACE|FACE' with ID 45
+    processing part 'inlet|FACE-20|FACE' with ID 47
+    processing part 'inlet|FACE-21|FACE' with ID 49
+    processing part 'inlet|FACE-22|FACE' with ID 51
+    processing part 'outlet|FACE-23|FACE' with ID 53
+    processing part 'outlet|FACE-24|FACE' with ID 55
+    processing part 'outlet|FACE-25|FACE' with ID 57
+    processing part 'outlet|FACE-26|FACE' with ID 59
+    processing data ...
+    removing named collections of entities ...
+    removing named collections of entities stopped, no named collections selected.
+    analyzing feature edges ...
+    detecting feature edges, feature angle = 40 [deg] ...
+        Data information
+            Meshing model
+                Attributes:
+                    'LengthUnit': '[mm]'
+                Entity summary:
+                    Component: 30
+                    Body     : 29
+                    Shell    : 29
+                    Face     : 102
+                    Loop     : 110
+                    Edge     : 188
+                    Vertex   : 136
+                    Surface  : 102
+                    Curve    : 188
+                Tessellation summary:
+                    Face facets  : 1884
+                    Edge segments: 1052
+                Bounding box:
+                    (-54.5, -54.5, -5) x (54.5, 54.5, 75)
+                Assembly component hierarchy:
+                    'D:\\MEK\\The Digital Twins EV Battery\\phase2_cad_model\\EV_Battery_Module.step'
+                      'cold_plate|SOLID|SOLID'
+                      'fluid|SOLID-0|SOLID'
+                      'fluid|SOLID-1|SOLID'
+                      'fluid|SOLID-2|SOLID'
+                      'fluid|SOLID-3|SOLID'
+                      'cells|SOLID-4|SOLID'
+                      'cells|SOLID-5|SOLID'
+                      'cells|SOLID-6|SOLID'
+                      'cells|SOLID-7|SOLID'
+                      'cells|SOLID-8|SOLID'
+                      'cells|SOLID-9|SOLID'
+                      'cells|SOLID-10|SOLID'
+                      'cells|SOLID-11|SOLID'
+                      'cells|SOLID-12|SOLID'
+                      'cells|SOLID-13|SOLID'
+                    [... 14 more ...]
+    
+    
+    exporting FLTG data to file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\out17807936504584.tgf' ...
+    writing face-based mesh file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\out17807936504584.tgf' ...
+    ======== Exported Data ========
+    Entity summary:
+        Object       : 29
+        Object region: 29
+        Zone         : 58
+    
+    running conversion done.
+    running ANSYS TGrid CADToTGridConverter done.
+    ran ANSYS TGrid CADToTGridConverter in 2.949 [s]
+
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584/out17807936504584.tgf"...
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584/out17807936504584.tgf"...
+nodes: 2000
+edges: 1036
+faces: 1884
+cells: 0
+reading 2000 storage data (id 1, type 41, double precision binary).
+generating pointers...done.
+extracting boundary entities...
+ 2000 boundary nodes.
+ 1884 boundary faces.
+ 29 boundary face zones.
+done.
+analyzing boundary connectivity...done.
+
+---------------- Import of EV_Battery_Module, consisting of 29 parts/objects, complete. 
+ 
+(newline)
+
+
+Meshing> Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\TaskObject3.msh.h5" ...
+writing 1 node zones
+writing 29 edge zones 
+writing 29 face zones 
+writing node curvature data...
+done.
+Importing one mesh object per program-controlled and one zone per body ...
+    D:\\ANSYS Inc\\v241\\commonfiles\\CPython\\3_10\\winx64\\Release\\python\\..\\Ansys\\TGrid\\CADReaders.py started by omaar on TUFTUF winx64 on Sun Jun  7 03:54:17 2026
+    using Python 3.10.9 (remotes/origin/4e018266dafe29ec2836492d71d245fcfd366d07-dirty:4e018266, Jan  3 2) [MSC v.1920 64 bit (AMD64)]
+    
+    using Ansys.Meshing.FieldMesher build Nov 27 2023 11:54:13
+    
+    running ANSYS TGrid CADToTGridConverter ...
+    setting up parameters ...
+    setting up parameters done.
+    running conversion ...
+    converting 1 file(s) from Workbench to FLTG using output path 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584/out17807936574584.tgf'
+    converting file 'EV_Battery_Module.step.pmdb' (1 of 1) from Workbench to FLTG using output path 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584'
+    importing data ...
+    importing meshing model from PartMgr from file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\\\EV_Battery_Module.step.pmdb' ...
+    setting enclosure and symmetry processing to False
+    setting transfer named selections to True
+    setting named selection prefixes to ''
+    setting mixed import resolution type to 'SolidAndSurface'
+    setting target application to 'FluentMeshing'
+    initializing part manager from file ...
+    processing assembly 'D:\\MEK\\The Digital Twins EV Battery\\phase2_cad_model\\EV_Battery_Module.step' with ID 1
+    length unit = [mm]
+    processing part 'cold_plate|SOLID|SOLID' with ID 3
+    processing part 'fluid|SOLID-0|SOLID' with ID 5
+    processing part 'fluid|SOLID-1|SOLID' with ID 7
+    processing part 'fluid|SOLID-2|SOLID' with ID 9
+    processing part 'fluid|SOLID-3|SOLID' with ID 11
+    processing part 'cells|SOLID-4|SOLID' with ID 13
+    processing part 'cells|SOLID-5|SOLID' with ID 15
+    processing part 'cells|SOLID-6|SOLID' with ID 17
+    processing part 'cells|SOLID-7|SOLID' with ID 19
+    processing part 'cells|SOLID-8|SOLID' with ID 21
+    processing part 'cells|SOLID-9|SOLID' with ID 23
+    processing part 'cells|SOLID-10|SOLID' with ID 25
+    processing part 'cells|SOLID-11|SOLID' with ID 27
+    processing part 'cells|SOLID-12|SOLID' with ID 29
+    processing part 'cells|SOLID-13|SOLID' with ID 31
+    processing part 'cells|SOLID-14|SOLID' with ID 33
+    processing part 'cells|SOLID-15|SOLID' with ID 35
+    processing part 'cells|SOLID-16|SOLID' with ID 37
+    processing part 'cells|SOLID-17|SOLID' with ID 39
+    processing part 'cells|SOLID-18|SOLID' with ID 41
+    processing part 'cells|SOLID-19|SOLID' with ID 43
+    processing part 'inlet|FACE|FACE' with ID 45
+    processing part 'inlet|FACE-20|FACE' with ID 47
+    processing part 'inlet|FACE-21|FACE' with ID 49
+    processing part 'inlet|FACE-22|FACE' with ID 51
+    processing part 'outlet|FACE-23|FACE' with ID 53
+    processing part 'outlet|FACE-24|FACE' with ID 55
+    processing part 'outlet|FACE-25|FACE' with ID 57
+    processing part 'outlet|FACE-26|FACE' with ID 59
+    processing data ...
+    saving size function background grid to file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\EV_Battery_Module.sf' ...
+    writing size function background grid file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\EV_Battery_Module.sf' ...
+    Vertices already exist
+    initializing size function background grid done in 0.081 [s]
+    removing named collections of entities ...
+    removing named collections of entities stopped, no named collections selected.
+    analyzing feature edges ...
+    detecting feature edges, feature angle = 40 [deg] ...
+        Data information
+            Meshing model
+                Attributes:
+                    'LengthUnit': '[mm]'
+                Entity summary:
+                    Component: 30
+                    Body     : 29
+                    Shell    : 29
+                    Face     : 102
+                    Loop     : 110
+                    Edge     : 188
+                    Vertex   : 136
+                    Surface  : 102
+                    Curve    : 188
+                Tessellation summary:
+                    Face facets  : 45650
+                    Edge segments: 3136
+                Bounding box:
+                    (-54.5, -54.5, -5) x (54.5, 54.5, 75)
+                Assembly component hierarchy:
+                    'D:\\MEK\\The Digital Twins EV Battery\\phase2_cad_model\\EV_Battery_Module.step'
+                      'cold_plate|SOLID|SOLID'
+                      'fluid|SOLID-0|SOLID'
+                      'fluid|SOLID-1|SOLID'
+                      'fluid|SOLID-2|SOLID'
+                      'fluid|SOLID-3|SOLID'
+                      'cells|SOLID-4|SOLID'
+                      'cells|SOLID-5|SOLID'
+                      'cells|SOLID-6|SOLID'
+                      'cells|SOLID-7|SOLID'
+                      'cells|SOLID-8|SOLID'
+                      'cells|SOLID-9|SOLID'
+                      'cells|SOLID-10|SOLID'
+                      'cells|SOLID-11|SOLID'
+                      'cells|SOLID-12|SOLID'
+                      'cells|SOLID-13|SOLID'
+                    [... 14 more ...]
+    
+    
+    exporting FLTG data to file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\out17807936574584.tgf' ...
+    writing face-based mesh file 'D:\\MEK\\The Digital Twins EV Battery\\phase3_cfd_model\\FM_TUFTUF_4584\\out17807936574584.tgf' ...
+    ======== Exported Data ========
+    Entity summary:
+        Object       : 29
+        Object region: 29
+        Zone         : 58
+    
+    running conversion done.
+    running ANSYS TGrid CADToTGridConverter done.
+    ran ANSYS TGrid CADToTGridConverter in 0.804 [s]
+
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584/out17807936574584.tgf"...
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584/out17807936574584.tgf"...
+nodes: 25607
+edges: 2720
+faces: 45650
+cells: 0
+reading 25607 storage data (id 1, type 41, double precision binary).
+appending mesh...
+done.
+generating pointers...done.
+extracting boundary entities...
+ 27607 boundary nodes.
+ 47534 boundary faces.
+ 58 boundary face zones.
+done.
+
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\EV_Battery_Module.sf"...
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\EV_Battery_Module.sf"...
+ANSYS(R) TGLib(TM) 3D, revision 24.1.0
+ Read 23523 vertices
+14718 faces marked.
+Deleting import_curvature_0
+Deleting import_proximity_0
+
+---------------- Surface Meshing of EV_Battery_Module complete in  0.05 minutes.
+
+---------------- After surface meshing, 29 objects/parts have been detected. Either the Share Topology task should be added, or the Non-Conformal option should be invoked.
+
+---------------- Note that surface re-meshing and quality improvements will be executed after the Share Topology/Describe Geometry Tasks
+Illegitimate input at /GeometrySetup; GeometryType
+Illegitimate input at /GeometrySetup; GeometryType
+
+---------------- Describe Geometry task complete in  0.00 minutes.
+Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\TaskObject5.msh.h5" ...
+writing 2 node zones
+writing 58 edge zones 
+writing 58 face zones 
+writing node curvature data...
+done.
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\\EV_Battery_Module.sf"...
+Reading "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\\EV_Battery_Module.sf"...
+ Read 23523 vertices
+36 pair(s) found.
+Joining...
+ fluid-solid-3-solid and outlet-face-26-face 
+ fluid-solid-2-solid and outlet-face-25-face 
+ fluid-solid-1-solid and outlet-face-24-face 
+ fluid-solid-0-solid and outlet-face-23-face 
+ fluid-solid-3-solid and inlet-face-22-face 
+ fluid-solid-2-solid and inlet-face-21-face 
+ fluid-solid-1-solid and inlet-face-20-face 
+ fluid-solid-0-solid and inlet-face-face 
+ cold_plate-solid-solid and fluid-solid-2-solid 
+ cold_plate-solid-solid and fluid-solid-1-solid 
+ cold_plate-solid-solid and fluid-solid-0-solid 
+ cold_plate-solid-solid and fluid-solid-3-solid 
+ cold_plate-solid-solid and cells-solid-11-solid 
+ cold_plate-solid-solid and cells-solid-15-solid 
+ cold_plate-solid-solid and cells-solid-14-solid 
+ cold_plate-solid-solid and cells-solid-10-solid 
+ cold_plate-solid-solid and cells-solid-17-solid 
+ cold_plate-solid-solid and cells-solid-13-solid 
+ cold_plate-solid-solid and cells-solid-12-solid 
+ cold_plate-solid-solid and cells-solid-7-solid 
+ cold_plate-solid-solid and cells-solid-16-solid 
+ cold_plate-solid-solid and cells-solid-9-solid 
+ cold_plate-solid-solid and cells-solid-6-solid 
+ cold_plate-solid-solid and cells-solid-19-solid 
+ cold_plate-solid-solid and cells-solid-8-solid 
+ cold_plate-solid-solid and cells-solid-5-solid 
+ cold_plate-solid-solid and cells-solid-18-solid 
+ cold_plate-solid-solid and cells-solid-4-solid 
+ Warning: Remeshing may alter the final dihedral angle.
+Done.
+0 pair(s) found.
+
+    computing regions...done
+0 faces marked.
+Deleting import_curvature_0
+Deleting import_proximity_0
+    processing size functions/scoped sizing to create Size Field...
+
+Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\ev_battery_module.sf"...
+Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\ev_battery_module.sf"...
+Done.
+
+
+remeshing...
+
+
+------------------------- --------------------- -------------------- ---------------- ----------
+                     name skewed-cells (> 0.80)    averaged-skewness maximum-skewness face count
+------------------------- --------------------- -------------------- ---------------- ----------
+
+     cells-solid-10-solid                     0          0.011312826       0.44024312       1706
+   cold_plate-solid-solid                     0          0.029488377       0.54540651      13688
+      cells-solid-4-solid                     0          0.007603901       0.45776269       1680
+      cells-solid-5-solid                     0         0.0076071473       0.21202945       1694
+      cells-solid-6-solid                     0          0.011021799       0.38359468       1734
+      cells-solid-7-solid                     0          0.010509143       0.21575798       1702
+      cells-solid-8-solid                     0         0.0083420037       0.34929298       1706
+      cells-solid-9-solid                     0         0.0073148691       0.31014435       1680
+     cells-solid-11-solid                     0          0.010752604       0.34401551       1692
+     cells-solid-12-solid                     0         0.0065310026       0.17882711       1684
+     cells-solid-13-solid                     0         0.0090492971        0.1707335       1684
+     cells-solid-14-solid                     0         0.0088640394       0.21956263       1716
+     cells-solid-15-solid                     0          0.009684116       0.34401559       1684
+     cells-solid-16-solid                     0         0.0094353612       0.34810646       1704
+     cells-solid-17-solid                     0         0.0072986797       0.37893608       1674
+     cells-solid-18-solid                     0         0.0098420446       0.38359501       1726
+     cells-solid-19-solid                     0         0.0081879814       0.22095882       1706
+      fluid-solid-3-solid                     0          0.031213538        0.3768474       1196
+      fluid-solid-2-solid                     0          0.028840667       0.37623033       1192
+      fluid-solid-1-solid                     0          0.027258759        0.3876939       1180
+      fluid-solid-0-solid                     0          0.028511685       0.36982355       1188
+------------------------- --------------------- -------------------- ---------------- ----------
+                     name skewed-cells (> 0.80)    averaged-skewness maximum-skewness face count
+------------------------- --------------------- -------------------- ---------------- ----------
+
+        ev_battery_module                     0          0.014581323       0.54540651      39071
+
+---------------- Surface Quality improvement complete in :  0.00 minutes. The final maximum surface skewness is  0.55. 
+
+
+---------------- After Surface mesh, the model consists of 21 fluid/solid regions and 0 voids.
+
+---------------- Share Topology of ev_battery_module complete in  0.25 minutes with a maximum skewness of  0.55. 
+
+Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\TaskObject8.msh.h5" ...
+writing 76 node zones
+writing 124 edge zones 
+writing 74 face zones 
+writing node curvature data...
+done.
+    updating regions...
+    done.
+---- Warning--- One or more fluid regions could not be detected. Verify the names and types of your regions using the Update Region task.
+
+---------------- Region identification of ev_battery_module was not successful. 
+
+---------------- Regions Updated
+Writing "D:\MEK\The Digital Twins EV Battery\phase3_cfd_model\FM_TUFTUF_4584\TaskObject11.msh.h5" ...
+writing 76 node zones
+writing 124 edge zones 
+writing 74 face zones 
+writing node curvature data...
+done.
+checking object "ev_battery_module"...
+    skipping validating regions of mesh object "ev_battery_module"...done.
+auto meshing object ev_battery_module...
+
+Identifying Topology...
+
+The octree hexcore cells will be refined using local surface mesh sizes and body of influence (boi) size controls, if there are any defined.
+Generating initial mesh...
+
+Refining mesh...
+
+Create polyhedra ...
+
+delete virtual and dead zones.
+
+Merging zones...
+
+Cleaning up dead entities...
+
+
+Merging Domains...
+done.
+
+                     name       id cells (quality < 0.05)  minimum quality cell count
+------------------------- -------- ---------------------- ---------------- ----------
+      fluid-solid-0-solid    10945                      0        0.4873408        757
+      fluid-solid-2-solid    10942                      0       0.64517396        770
+      fluid-solid-1-solid    10939                      0       0.63309514        767
+      fluid-solid-3-solid    10936                      0       0.54592893        772
+   cold_plate-solid-solid    10658                      0       0.20163662      16494
+     cells-solid-11-solid    10653                      0       0.62167068       4527
+      cells-solid-7-solid    10648                      0        0.6118942       4348
+     cells-solid-10-solid    10643                      0       0.67459362       4535
+      cells-solid-6-solid    10638                      0       0.63015912       4193
+     cells-solid-19-solid    10633                      0       0.51818941       4432
+     cells-solid-15-solid    10628                      0       0.52542973       4501
+     cells-solid-18-solid    10623                      0       0.64412778       4550
+     cells-solid-14-solid    10618                      0       0.62961487       4615
+      cells-solid-9-solid    10613                      0        0.5955389       4554
+     cells-solid-17-solid    10608                      0       0.66017496       4473
+     cells-solid-13-solid    10603                      0       0.62789331       4369
+     cells-solid-16-solid    10598                      0       0.57748977       4435
+     cells-solid-12-solid    10593                      0        0.6406117       4467
+      cells-solid-5-solid    10588                      0        0.6421894       4539
+      cells-solid-8-solid    10583                      0        0.5981638       4513
+      cells-solid-4-solid    10578                      0       0.65775503       4393
+
+                     name       id cells (quality < 0.05)  minimum quality cell count
+------------------------- -------- ---------------------- ---------------- ----------
+          Overall Summary     none                      0       0.20163662      91004
+
+Total Number of Cell Zones : 21
+
+[Quality Measure : Orthogonal Quality]
+
+---------------- 91004 cells were created in :  0.12 minutes
+
+---------------- The mesh has a minimum Orthogonal Quality of:  0.20 
+
+---------------- The volume meshing of ev_battery_module is complete.
+
+
+Preparing...
+
+unused zone boundary-node-62 removed
+unused zone boundary-node-9118 removed
+unused zone boundary-node-9121 removed
+unused zone boundary-node-9124 removed
+unused zone boundary-node-9127 removed
+unused zone boundary-node-9130 removed
+unused zone boundary-node-9133 removed
+unused zone boundary-node-9136 removed
+unused zone boundary-node-9139 removed
+unused zone boundary-node-9142 removed
+unused zone boundary-node-9145 removed
+unused zone boundary-node-9148 removed
+unused zone boundary-node-9151 removed
+unused zone boundary-node-9154 removed
+unused zone boundary-node-9157 removed
+unused zone boundary-node-9160 removed
+unused zone boundary-node-9163 removed
+unused zone boundary-node-9166 removed
+unused zone boundary-node-9168 removed
+unused zone boundary-node-9170 removed
+unused zone boundary-node-9172 removed
+unused zone boundary-node-9174 removed
+unused zone boundary-node-9176 removed
+unused zone boundary-node-9178 removed
+unused zone boundary-node-9180 removed
+unused zone boundary-node-9182 removed
+unused zone boundary-node-9185 removed
+unused zone boundary-node-9188 removed
+unused zone boundary-node-9191 removed
+unused zone boundary-node-9194 removed
+unused zone boundary-node-9196 removed
+unused zone boundary-node-9198 removed
+unused zone boundary-node-9200 removed
+unused zone boundary-node-9202 removed
+unused zone boundary-node-9204 removed
+unused zone boundary-node-9206 removed
+unused zone boundary-node-9208 removed
+unused zone boundary-node-9210 removed
+unused zone boundary-node-9212 removed
+unused zone boundary-node-9214 removed
+unused zone boundary-node-9216 removed
+unused zone boundary-node-9218 removed
+unused zone boundary-node-9220 removed
+unused zone boundary-node-9222 removed
+unused zone boundary-node-9224 removed
+unused zone boundary-node-9226 removed
+unused zone boundary-node-10684 removed
+
+TUFTUF has other FLUENT parallel processes running.                       Process affinity not being set.
+
+Transferring mesh
+	transferring nodes... done
+	creating threads... done
+	transferring faces... done
+	transferring cells... done
+	updating face to cell connectivity... done
+	updating grid metrics...  done
+	post mesh transfer operations... done
+done
+
+     materials,
+     interface,
+     domains,
+     zones,
+	cells-solid-4-solid-cold_plate-solid-solid-shadow
+	cells-solid-18-solid-cold_plate-solid-solid-shadow
+	cells-solid-5-solid-cold_plate-solid-solid-shadow
+	cells-solid-8-solid-cold_plate-solid-solid-shadow
+	cells-solid-19-solid-cold_plate-solid-solid-shadow
+	cells-solid-6-solid-cold_plate-solid-solid-shadow
+	cells-solid-9-solid-cold_plate-solid-solid-shadow
+	cells-solid-16-solid-cold_plate-solid-solid-shadow
+	cells-solid-7-solid-cold_plate-solid-solid-shadow
+	cells-solid-12-solid-cold_plate-solid-solid-shadow
+	cells-solid-13-solid-cold_plate-solid-solid-shadow
+	cells-solid-17-solid-cold_plate-solid-solid-shadow
+	cells-solid-10-solid-cold_plate-solid-solid-shadow
+	cells-solid-14-solid-cold_plate-solid-solid-shadow
+	cells-solid-15-solid-cold_plate-solid-solid-shadow
+	cells-solid-11-solid-cold_plate-solid-solid-shadow
+	cold_plate-solid-solid-fluid-solid-3-solid-shadow
+	cold_plate-solid-solid-fluid-solid-0-solid-shadow
+	cold_plate-solid-solid-fluid-solid-1-solid-shadow
+	cold_plate-solid-solid-fluid-solid-2-solid-shadow
+	interior--cells-solid-15-solid
+	interior--cells-solid-14-solid
+	interior--cells-solid-18-solid
+	interior--cells-solid-19-solid
+	interior--cells-solid-10-solid
+	interior--cells-solid-11-solid
+	interior--cells-solid-7-solid
+	interior--cells-solid-13-solid
+	interior--cells-solid-17-solid
+	interior--cells-solid-12-solid
+	interior--cells-solid-16-solid
+	interior--cells-solid-5-solid
+	interior--cells-solid-9-solid
+	interior--cells-solid-8-solid
+	interior--cells-solid-4-solid
+	interior--fluid-solid-0-solid
+	interior--fluid-solid-2-solid
+	interior--fluid-solid-1-solid
+	interior--fluid-solid-3-solid
+	cells-solid-4-solid-cold_plate-solid-solid
+	cells-solid-18-solid-cold_plate-solid-solid
+	cells-solid-5-solid-cold_plate-solid-solid
+	cells-solid-8-solid-cold_plate-solid-solid
+	cells-solid-19-solid-cold_plate-solid-solid
+	cells-solid-6-solid-cold_plate-solid-solid
+	cells-solid-9-solid-cold_plate-solid-solid
+	cells-solid-16-solid-cold_plate-solid-solid
+	cells-solid-7-solid-cold_plate-solid-solid
+	cells-solid-12-solid-cold_plate-solid-solid
+	cells-solid-13-solid-cold_plate-solid-solid
+	cells-solid-17-solid-cold_plate-solid-solid
+	cells-solid-10-solid-cold_plate-solid-solid
+	cells-solid-14-solid-cold_plate-solid-solid
+	cells-solid-15-solid-cold_plate-solid-solid
+	cells-solid-11-solid-cold_plate-solid-solid
+	cold_plate-solid-solid-fluid-solid-3-solid
+	cold_plate-solid-solid-fluid-solid-0-solid
+	cold_plate-solid-solid-fluid-solid-1-solid
+	cold_plate-solid-solid-fluid-solid-2-solid
+	inlet-face-face
+	inlet-face-20-face
+	inlet-face-21-face
+	inlet-face-22-face
+	outlet-face-23-face
+	outlet-face-24-face
+	outlet-face-25-face
+	outlet-face-26-face
+	cells-solid-19-solid:1
+	cells-solid-18-solid:1
+	cells-solid-17-solid:1
+	cells-solid-16-solid:1
+	cells-solid-15-solid:1
+	cells-solid-14-solid:1
+	cells-solid-13-solid:1
+	cells-solid-12-solid:1
+	cells-solid-11-solid:1
+	cells-solid-9-solid:1
+	cells-solid-8-solid:1
+	cells-solid-7-solid:1
+	cells-solid-6-solid:1
+	cells-solid-5-solid:1
+	cells-solid-4-solid:1
+	cold_plate-solid-solid:1
+	cells-solid-10-solid:1
+	interior--cold_plate-solid-solid
+	interior--cells-solid-6-solid
+	cells-solid-4-solid
+	cells-solid-8-solid
+	cells-solid-5-solid
+	cells-solid-12-solid
+	cells-solid-16-solid
+	cells-solid-13-solid
+	cells-solid-17-solid
+	cells-solid-9-solid
+	cells-solid-14-solid
+	cells-solid-18-solid
+	cells-solid-15-solid
+	cells-solid-19-solid
+	cells-solid-6-solid
+	cells-solid-10-solid
+	cells-solid-7-solid
+	cells-solid-11-solid
+	cold_plate-solid-solid
+	fluid-solid-3-solid
+	fluid-solid-1-solid
+	fluid-solid-2-solid
+	fluid-solid-0-solid
+     surfaces,
+     parallel,
+Done.
+Mesh is now scaled to meters.
+(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)
+(newline)
+
+
+> Shutting down Server...
+Services Shutdown...Done.
+Server Shutdown...Done.
+Queue Cleared...Done.
+Shutdown Complete.
+Auto-Transcript Stop Time:  03:56:25, 07 Jun 2026 Egypt Daylight Time 
+Total Transcript Time: 2 Minute 30 Second.
