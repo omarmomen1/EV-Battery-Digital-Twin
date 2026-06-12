@@ -1,0 +1,7 @@
+*.trn
+*.log
+*.msh.h5
+*.sf
+*.pmdb
+FM_TUFTUF_*
+cleanup-fluent-*.bat
