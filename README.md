@@ -1,36 +1,52 @@
-# Tesla-Architecture EV Battery Digital Twin
+# Physics-Informed Digital Twin for EV Battery Modules
+**Bridging High-Fidelity CHT Simulation with a Live IoT Battery Management System**
 
-A full-stack, software-defined Digital Twin of a high-performance Electric Vehicle Battery Thermal Management System (BTMS). This project integrates procedural 3D CAD generation, automated Computational Fluid Dynamics (CFD), and a real-time IoT Telemetry pipeline with anomaly detection.
+> **Author**: Omar Momen  
+> **Discipline**: Mechanical Engineering + Embedded Software Systems  
+> **Tools**: Ansys Fluent 24.1 · PyFluent · CadQuery · Python · MQTT · InfluxDB · Grafana  
 
-## Project Architecture
-
-1. **Procedural Geometry**: A Python `CadQuery` script generates a pristine, Tesla-style 4x10 staggered honeycomb array of 21700 cells enclosed in a custom cross-flow manifold. 
-2. **CFD Automation**: A headless PyFluent script automates the meshing, applies dielectric fluid properties and 18650/21700 volumetric heat generation, and extracts the steady-state thermal gradient data.
-3. **IoT Pipeline**: A Python simulator broadcasts synthetic real-time telemetry (anchored to the CFD thermal data) over an MQTT broker. A bridge script ingests this into an InfluxDB time-series database.
-4. **Live Anomaly Detection**: A continuous background script monitors the `dT/dt` rates to detect thermal runaway precursors before catastrophic failure.
+A full-stack, software-defined Digital Twin of a high-performance Electric Vehicle Battery Thermal Management System (BTMS). This project integrates parametric 3D CAD generation, automated Computational Fluid Dynamics (CFD), and a real-time IoT Telemetry pipeline with anomaly detection.
 
 ---
 
-## Engineering Limitations & Assessment
+## 1. The Validated Prototype (Current State)
 
-As a simulation-driven model, this Digital Twin relies on several critical boundary conditions and simplifications. Understanding where these assumptions break down is essential for scaling this architecture to production.
+The foundation of this Digital Twin is built on a fully validated, physics-grounded prototype. 
+
+* **Physical Model**: A 4-cell liquid-cooled cold plate architecture.
+* **CFD Validation**: 6 distinct Conjugate Heat Transfer (CHT) design points were solved using the k-ω SST turbulence model in Ansys Fluent. The simulation achieved convergence and verified the pressure drop ($\Delta P$) and peak temperatures across multiple coolant mass flow rates.
+* **Telemetry Anchor**: The Python IoT simulator (`telemetry_simulator.py`) is directly anchored to this validated CFD data. Using Newton's Law of Cooling and NumPy interpolation, the simulated sensors react with the exact thermal mass and steady-state boundaries derived from the Ansys solver.
+* **BMS Safety Layer**: A dedicated microservice evaluates the first temporal derivative ($dT/dt$) of the MQTT telemetry stream, distinguishing benign thermal plateaus from early-stage thermal runaway precursors (<3 second detection latency).
+
+---
+
+## 2. Next-Generation Architecture (Ongoing Work)
+
+To scale the prototype into a production-grade architecture, I have engineered a next-generation immersion cooling module and closed-loop software pipeline. This architecture is currently in active development.
+
+* **Procedural Honeycomb Geometry**: Utilizing Python's `CadQuery`, the CAD model has been upgraded to a **40-cell (4x10) staggered honeycomb manifold** optimized for direct dielectric fluid immersion.
+* **CFD Automation**: A headless PyFluent script was written to completely automate the meshing and solving of the 40-cell manifold. 
+* **Closed-Loop BMS Feedback**: The IoT architecture has been upgraded to support closed-loop actuation. The telemetry simulator now intercepts `CRITICAL` anomaly alerts via MQTT callbacks to automatically override vehicle throttle (Limp Mode) and command maximum coolant pump RPM.
+
+---
+
+## 3. Engineering Limitations & Assessment
+
+As an engineer, distinguishing between validated results and simulated assumptions is critical. Understanding where this model breaks down is essential for scaling to production.
 
 ### Physics & Thermal Limitations
-- **Uniform Volumetric Heat Generation**: The uniform $150,000 \, W/m^3$ heat generation assumption is conservative at low SOC, but underestimates peak generation at high discharge rates, where internal resistance spikes as the cell approaches cutoff voltage. Furthermore, it ignores electrochemical non-uniformity—real heat generation is highest at the current collectors and drops axially. The model currently treats the cell as a uniform heater rather than a dynamic electrochemical battery. This means the CFD steady-state temperatures are likely optimistic by 3–6°C under real fast-charge conditions.
-- **Constant Fluid Properties**: The dielectric coolant properties (viscosity and specific heat) are currently treated as constant. In reality, these properties change meaningfully between 25°C and 60°C, which significantly alters both the local heat transfer coefficient and the pressure drop across the staggered honeycomb array.
-- **Steady-State CFD vs. Transient Reality**: The steady-state CFD captures the thermal limit, but misses transient thermal events (e.g., a 10-second full-throttle burst from cold). The Digital Twin's Newton's Law of Cooling simulator partially compensates for this, but the thermal time constant ($\alpha$) was tuned heuristically rather than derived from a physically measured time constant.
+* **Isothermal Flow in 40-Cell Simulation**: While the automated PyFluent script successfully generates a 3D volume mesh and converges the Navier-Stokes equations for the 40-cell honeycomb, the Ansys Python API currently throws a silent dictionary key error when mapping the volumetric heat source to the parametrically generated cell zones. As a result, the current 40-cell solution is isothermal. Extracting validated thermal gradients requires manually updating the source-term coupling in the Fluent GUI.
+* **Uniform Volumetric Heat Generation**: The uniform $150,000 \, W/m^3$ heat generation assumption used in the validated 4-cell model underestimates peak generation at high discharge rates, where internal resistance spikes. Furthermore, it ignores electrochemical non-uniformity—real heat generation is highest at the current collectors. 
+* **Constant Fluid Properties**: The dielectric coolant properties are treated as constant. In reality, viscosity changes meaningfully between 25°C and 60°C, which alters both the local heat transfer coefficient and the hydraulic pressure drop.
 
 ### Software & Systems Limitations
-- **Open-Loop Telemetry**: The current IoT architecture is open-loop. While the Python Anomaly Detector successfully flags thermal runaway precursors, the BMS output does not modify the simulator's next time step. A true digital twin must close the loop: utilizing the anomaly detection result to throttle the simulated vehicle load or ramp up the coolant pump RPM.
-- **Threshold Calibration**: The $dT/dt$ alert thresholds (0.5°C/s and 1.2°C/s) were calibrated against synthetic fault injections. In a production environment, these thresholds must be derived directly from Accelerating Rate Calorimetry (ARC) test data on the specific 21700 cell chemistry.
-- **Module vs. Pack Scaling**: This model is scoped to a single 40-cell module. Scaling to a full 4,000+ cell pack introduces massive thermal gradients between modules, coolant temperature rise along the main manifold, and pack-level current balancing effects that invalidate single-module boundary conditions.
+* **Simulated Closed-Loop Actuation**: The closed-loop BMS feedback currently acts upon its own simulated parameters. While the pub/sub software architecture is sound, calling this a "True Closed-Loop System" requires integration with a physical actuator (Hardware-in-the-Loop) or a coupled 1D-system solver to confirm the physical hydraulic response of the pump.
+* **Threshold Calibration**: The $dT/dt$ alert thresholds (0.5°C/s and 1.2°C/s) were calibrated against synthetic fault injections. In a production environment, these thresholds must be derived directly from Accelerating Rate Calorimetry (ARC) test data on the specific 21700 cell chemistry.
 
 ---
 
-## Future Work & Next Iterations
+## 4. Future Work Roadmap
 
-To bridge the gap between this prototype and a production-grade BMS simulator, the following iterations are proposed:
-1. **Electrochemical Coupling**: Replace the uniform heat flux boundary condition with a Newman P2D (pseudo-two-dimensional) electrochemical model to provide spatially and temporally resolved heat generation mapping.
-2. **Hardware-in-the-Loop (HIL) Calibration**: Measure the true thermal time constant of a physical 21700 cell using a thermocouple array, and use the empirical data to calibrate the simulator's $\alpha$ parameter.
-3. **Closed-Loop Control Logic**: Implement a feedback mechanism where the BMS output dynamically alters the coolant flow rate setpoint, feeding back into a multidimensional CFD interpolation table.
-4. **1D-3D Co-Simulation**: Extend the architecture to a full pack by modeling the global manifold temperature rise as a 1D thermal-fluid network, using the 3D CFD module data as local node inputs.
+1. **Electrochemical Coupling**: Replace the uniform heat flux boundary condition with a Newman P2D (pseudo-two-dimensional) electrochemical model.
+2. **PyFluent API Resolution**: Resolve the dynamic source-term dictionary mapping in the PyFluent 24.1 script to fully automate the 40-cell thermal solve.
+3. **Hardware-in-the-Loop (HIL) Calibration**: Measure the true thermal time constant of a physical 21700 cell using a thermocouple array, and use the empirical data to calibrate the simulator's $\alpha$ parameter.
