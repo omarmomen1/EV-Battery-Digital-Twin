@@ -16,34 +16,73 @@ df = pd.read_csv(csv_path)
 al_df = df[df['Material'] == 'aluminum']
 cu_df = df[df['Material'] == 'copper']
 
+# Define Stunning Dark Mode Aesthetic
+bg_color = '#0B0F19'  # Deep space dark blue
+grid_color = '#1E293B'
+text_color = '#E2E8F0'
+cyan_neon = '#00f0ff'
+orange_neon = '#ffaa00'
+purple_neon = '#b5179e'
+
+plt.rcParams.update({
+    'axes.facecolor': bg_color,
+    'figure.facecolor': bg_color,
+    'text.color': text_color,
+    'axes.labelcolor': text_color,
+    'xtick.color': text_color,
+    'ytick.color': text_color,
+    'axes.edgecolor': grid_color,
+    'font.family': 'sans-serif',
+    'font.weight': 'medium'
+})
+
 # Plot 1: Temperature vs Mass Flow
-plt.figure(figsize=(8, 6))
-plt.plot(al_df['Mass Flow (kg/s)'], al_df['Max Temp (C)'], marker='o', label='Aluminum Cold Plate', color='#3498db', linewidth=2)
-plt.plot(cu_df['Mass Flow (kg/s)'], cu_df['Max Temp (C)'], marker='s', label='Copper Cold Plate', color='#e67e22', linewidth=2)
-plt.title('Max Cell Temperature vs. Coolant Mass Flow Rate', fontsize=14)
-plt.xlabel('Mass Flow Rate (kg/s)', fontsize=12)
-plt.ylabel('Max Cell Temperature (°C)', fontsize=12)
-plt.grid(True, linestyle='--', alpha=0.7)
-plt.legend(fontsize=11)
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(al_df['Mass Flow (kg/s)'], al_df['Max Temp (C)'], marker='o', markersize=8, label='Aluminum Cold Plate', color=cyan_neon, linewidth=3, zorder=3)
+ax.plot(cu_df['Mass Flow (kg/s)'], cu_df['Max Temp (C)'], marker='s', markersize=8, label='Copper Cold Plate', color=orange_neon, linewidth=3, zorder=3)
+
+# Glow effect
+ax.plot(al_df['Mass Flow (kg/s)'], al_df['Max Temp (C)'], color=cyan_neon, linewidth=8, alpha=0.2, zorder=2)
+ax.plot(cu_df['Mass Flow (kg/s)'], cu_df['Max Temp (C)'], color=orange_neon, linewidth=8, alpha=0.2, zorder=2)
+
+ax.set_title('Max Cell Temperature vs. Coolant Mass Flow Rate', fontsize=16, pad=20, fontweight='bold')
+ax.set_xlabel('Mass Flow Rate (kg/s)', fontsize=12, labelpad=10)
+ax.set_ylabel('Maximum Temperature (°C)', fontsize=12, labelpad=10)
+ax.grid(True, linestyle='-', color=grid_color, linewidth=1, zorder=1)
+
+# Style the legend
+legend = ax.legend(fontsize=11, facecolor=bg_color, edgecolor=grid_color, framealpha=0.9)
+for text in legend.get_texts():
+    text.set_color(text_color)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
 plt.tight_layout()
 temp_plot_path = os.path.join(output_dir, "temperature_plot.png")
-plt.savefig(temp_plot_path, dpi=300)
+plt.savefig(temp_plot_path, dpi=300, facecolor=bg_color, edgecolor='none')
 print(f"Saved: {temp_plot_path}")
 plt.close()
 
 # Plot 2: Pressure Drop vs Mass Flow
-plt.figure(figsize=(8, 6))
-# Pressure drop is primarily geometric, so it's the same for both materials in this study,
-# but we'll plot one to show the hydraulic curve.
-plt.plot(cu_df['Mass Flow (kg/s)'], cu_df['Pressure Drop (Pa)'], marker='^', color='#9b59b6', linewidth=2)
-plt.title('Manifold Pressure Drop vs. Coolant Mass Flow Rate', fontsize=14)
-plt.xlabel('Mass Flow Rate (kg/s)', fontsize=12)
-plt.ylabel('Pressure Drop (Pa)', fontsize=12)
-plt.grid(True, linestyle='--', alpha=0.7)
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(cu_df['Mass Flow (kg/s)'], cu_df['Pressure Drop (Pa)'], marker='^', markersize=8, color=purple_neon, linewidth=3, zorder=3)
+
+# Glow effect
+ax.plot(cu_df['Mass Flow (kg/s)'], cu_df['Pressure Drop (Pa)'], color=purple_neon, linewidth=8, alpha=0.2, zorder=2)
+
+ax.set_title('Manifold Pressure Drop vs. Mass Flow Rate', fontsize=16, pad=20, fontweight='bold')
+ax.set_xlabel('Mass Flow Rate (kg/s)', fontsize=12, labelpad=10)
+ax.set_ylabel('Pressure Drop (Pa)', fontsize=12, labelpad=10)
+ax.grid(True, linestyle='-', color=grid_color, linewidth=1, zorder=1)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
 plt.tight_layout()
 pressure_plot_path = os.path.join(output_dir, "pressure_drop_plot.png")
-plt.savefig(pressure_plot_path, dpi=300)
+plt.savefig(pressure_plot_path, dpi=300, facecolor=bg_color, edgecolor='none')
 print(f"Saved: {pressure_plot_path}")
 plt.close()
 
-print("All plots generated successfully.")
+print("All stunning plots generated successfully.")
