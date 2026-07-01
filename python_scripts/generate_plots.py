@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 import os
 
 # Paths
-csv_path = "D:/MEK/The Digital Twins EV Battery/phase3_cfd_model/CFD_Optimization_Report.csv"
-output_dir = "D:/MEK/The Digital Twins EV Battery/Production_Repository/cfd_results"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+csv_path = os.path.join(base_dir, "cfd_results", "CFD_Optimization_Report.csv")
+output_dir = os.path.join(base_dir, "cfd_results")
 
 # Ensure output dir exists
 os.makedirs(output_dir, exist_ok=True)

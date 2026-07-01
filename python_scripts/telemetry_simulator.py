@@ -55,7 +55,10 @@ def simulate_drive_cycle():
 
     print("Loading Phase 3 CFD Optimization Data into Digital Twin Memory...")
     try:
-        cfd_data = pd.read_csv("D:/MEK/The Digital Twins EV Battery/phase3_cfd_model/CFD_Optimization_Report.csv")
+        import os
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        csv_path = os.path.join(base_dir, "cfd_results", "CFD_Optimization_Report.csv")
+        cfd_data = pd.read_csv(csv_path)
         copper_df = cfd_data[cfd_data["Material"] == "copper"].sort_values("Mass Flow (kg/s)")
         print("CFD Data Loaded Successfully! Ground-truth physics established.")
     except Exception as e:
